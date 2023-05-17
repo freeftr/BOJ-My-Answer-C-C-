@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <string.h>
+int main(){
+    int a;
+    char x[10000]={};
+    scanf("%d", &a);
+    for(int i=0;i<a;i++){
+        scanf("%s", &x);
+        int k=0;
+        k=strlen(x);
+        printf("%c%c\n", x[0], x[k-1]);
+    }
+}

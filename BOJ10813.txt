@@ -1,0 +1,17 @@
+#include <stdio.h>
+int main(){
+    int a, b, n, m, bas[101]={}, k=0;
+    scanf("%d %d", &n, &m);
+    for(int i=1;i<=n;i++){
+        bas[i]=i;
+    }
+    for(int i=0;i<m;i++){
+        scanf("%d %d\n", &a, &b);
+        k=bas[a];
+        bas[a]=bas[b];
+        bas[b]=k;
+    }
+    for(int i=1;i<=n;i++){
+        printf("%d ", bas[i]);
+    }
+}

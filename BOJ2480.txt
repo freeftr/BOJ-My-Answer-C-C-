@@ -1,0 +1,31 @@
+#include <stdio.h>
+int main(){
+    int a, b, c, k;
+    scanf("%d %d %d", &a, &b, &c);
+    k=a;
+    for(int i=0;i<3;i++){
+        if(k<b){
+            k=b;
+        }
+        else if(k<c){
+            k=c;
+        }
+    }
+    if(a==b&&b==c){
+        printf("%d", 10000+(a*1000));
+    }
+    else if(a!=b&&a!=c&&b!=c){
+        printf("%d", k*100);
+    }
+    else{
+        if(a==b){
+            printf("%d", 1000+(100*a));
+        }
+        else if(b==c){
+            printf("%d", 1000+(100*b));
+        }
+        else{
+            printf("%d", 1000+(a*100));
+        }
+    }
+}

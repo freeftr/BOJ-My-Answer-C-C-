@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <string.h>
+int main(){
+  char s[10000];
+  int t, r, k;
+  scanf("%d", &t);
+  for(int i=0;i<t;i++){
+    scanf("%d %s", &r, &s);
+    k=strlen(s);
+    for(int j=0;j<k;j++){
+      for(int z=0;z<r;z++){
+        printf("%c", s[j]);
+      }
+    }
+    printf("\n");
+  }
+}
