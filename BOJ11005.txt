@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+void change(int N, int B){
+  if(N>0){
+    change(N/B, B);                 //재귀함수를 이용해서 첫번째 자리부터 계산하기 위함 
+    if(N%B>9 && B>10){              //10진법을 넘어가는 경우 문자로 출력하기 위한 조건문
+      printf("%c", 'A'-10+N%B);
+    }
+    else{
+      printf("%d", N%B);
+    }
+  }
+}
+int main(){
+  int N, B;
+  scanf("%d %d", &N, &B);
+  change(N, B);
+  return 0;
+}

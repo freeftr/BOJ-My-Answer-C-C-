@@ -1,0 +1,18 @@
+#include <stdio.h>
+#include <string.h>
+int main(){
+  int  b, k, answer=0, c=1;
+  char n[100];
+  scanf("%s %d", &n, &b);
+  k=strlen(n);
+  for(int j=k-1;j>=0;j--){
+    if(n[j]<58){
+      answer+=(n[j]-48)*c;
+    }
+    else{
+      answer+=(n[j]-55)*c;
+    }
+    c*=b;
+  }
+  printf("%d", answer);
+}

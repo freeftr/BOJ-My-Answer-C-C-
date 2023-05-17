@@ -1,0 +1,13 @@
+#include <stdio.h>
+int main(){
+  int T, Q=0, D=0, N=0, P=0, C;
+  scanf("%d", &T);
+  for(int i=0;i<T;i++){
+    scanf("%d", &C);
+    Q=C/25;
+    D=(C%25)/10;
+    N=((C%25)%10)/5;
+    P=C%5;
+    printf("%d %d %d %d\n", Q, D, N, P);
+  }
+}

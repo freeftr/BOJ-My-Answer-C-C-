@@ -1,0 +1,18 @@
+#include <stdio.h>
+int main(){
+  int X, k=0, i=0;
+  scanf("%d", &X);
+  while(1){
+    k=k+i;
+    if(k>=X){
+      break;
+    }
+    i++;
+  }
+  if(i%2==0){
+    printf("%d/%d", X-(k-i), 1-X+k);
+  }
+  else if(i%2==1){
+    printf("%d/%d", 1-X+k, X-(k-i));
+  }
+}
