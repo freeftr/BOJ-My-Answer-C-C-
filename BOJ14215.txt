@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main(){
+  int a, b, c, max=0, cnt=0, k;
+  scanf("%d %d %d", &a, &b, &c);
+  if(a>=b&&a>=c)max=a;
+  if(b>=a&&b>=c)max=b;
+  if(c>=a&&c>=b)max=c;
+   k=max;
+  if((a+b+c-max)>max){
+    printf("%d", a+b+c);
+  }
+  else{
+    while((a+b+c-k)<=max){
+      max--;
+      cnt++;
+    }
+    printf("%d", a+b+c-cnt);
+  }
+}

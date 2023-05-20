@@ -1,0 +1,56 @@
+#include <stdio.h>
+int main(){
+  int N, x, y, xa, ya;
+  int maxx=0, minx=10000, maxy=0, miny=10000;
+  scanf("%d", &N);
+  if(N>2){
+    for(int i=0;i<N;i++){
+      scanf("%d %d", &x, &y);
+      if(N==1){
+        printf("0");
+      }
+      else{
+        if(x>=maxx)
+        {
+          maxx=x;
+        }
+        if(x<=minx){
+          minx=x;
+        }
+        if(y>=maxy){
+          maxy=y;
+        }
+        if(y<=miny){
+          miny=y;
+        }
+      }
+    }
+    printf("%d", (maxx-minx)*(maxy-miny));
+  }
+  if(N==1){
+    scanf("%d %d", &x, &y);
+    printf("0");
+  }
+  if(N==2){
+    scanf("%d %d", &x, &y);
+    scanf("%d %d", &xa, &ya);
+    if(x==xa&&ya>=y){
+      printf("%d",(ya-y)*(ya-y));
+    }
+    else if(x==xa&&ya<y){
+      printf("%d",(y-ya)*(y-ya));
+    }
+    if(y==ya&&xa>=x){
+      printf("%d",(xa-x)*(xa-x));
+    }
+     else if(y==ya&&xa<x){
+      printf("%d",(x-xa)*(x-xa));
+    }
+    if((x>xa&&y>ya)||(x<xa&&y<ya)){
+      printf("%d",(x-xa)*(y-ya));
+    }
+    else if((x<xa&&y>ya)||(x<xa&&y>ya)){
+      printf("%d",-(x-xa)*(y-ya));
+    }
+  }
+}
