@@ -1,0 +1,24 @@
+#include <stdio.h>
+int go(int n, int d){
+  if(n==0){
+    return 0;
+  }
+  else{
+    return n%d + go((n-n%d)/10, d);
+  }
+}
+int main(){
+  int n, M, d=10, k=0, a=0;
+  scanf("%d", &n);
+  for(int i=1;i<=n;i++){
+    k=go(i, d);
+    if(i+k==n){
+      printf("%d", i);
+      a=1;
+      break;
+    }
+  }
+  if(a!=1){
+    printf("0");
+  }
+}
