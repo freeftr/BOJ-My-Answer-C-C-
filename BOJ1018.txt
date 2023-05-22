@@ -1,0 +1,48 @@
+#include <stdio.h>
+int main(){
+    char s[52][52];
+    int n, m, cnt=10000, cntB=0, cntW=0; 
+    scanf("%d %d", &n, &m);
+    for(int i=0;i<n;i++){
+      scanf("%s", s[i]);
+    }
+    for(int i=0; i<n-7;i++){   
+      for(int j=0;j<m-7;j++){   
+        for(int a=i;a<i+8;a++){
+          for(int b=j;b<j+8;b++){            
+            if((a+b)%2==0){
+              if(s[a][b]!='W'){
+                cntW++;
+              }
+            }
+            else{
+              if(s[a][b]!='B'){
+                cntW++;
+              }
+            }
+          }
+        }
+        for(int a=i;a<i+8;a++){
+          for(int b=j;b<j+8;b++){            
+            if((a+b)%2==0){
+              if(s[a][b]!='B'){
+                cntB++;
+              }
+            }
+            else{
+              if(s[a][b]!='W'){
+                cntB++;
+              }
+            }
+          }
+        }
+        int min=cntW<cntB?cntW:cntB;
+        if(min<cnt){
+          cnt=min;
+        }
+        cntW=0;
+        cntB=0;
+      }
+    }
+    printf("%d", cnt);
+}
