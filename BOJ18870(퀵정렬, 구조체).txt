@@ -1,0 +1,64 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct{
+  int x,y;
+  int index;
+} coord;
+
+int compare(const void *a, const void *b){
+  coord A=*(coord *)a;
+  coord B=*(coord *)b;
+
+  if(A.x>B.x){
+    return 1;
+  }
+  if(A.x<B.x){
+    return -1;
+  }
+  return 0;
+}
+
+int compare2(const void *a, const void *b){
+  coord A=*(coord *)a;
+  coord B=*(coord *)b;
+
+  if(A.index>B.index){
+    return 1;
+  }
+  if(A.index<B.index){
+    return -1;
+  }
+  return 0;
+}
+
+int main(){
+  int n, cnt=0;
+  scanf("%d", &n);
+  coord arr[n];
+  for(int i=0;i<n;i++){
+    scanf("%d", &arr[i].x);
+    arr[i].index=i;
+  }
+  qsort(arr, n, sizeof(coord), compare);
+  arr[0].y=0;
+  int j=1, c=1;
+  while(1){
+    if(arr[j].x==arr[j-1].x){
+      arr[j].y=arr[j-1].y;
+      j++;
+    }
+    else{
+      arr[j].y=c;
+      c++;
+      j++;
+    }
+    if(j>n){
+      break;
+    }
+  }
+  qsort(arr, n, sizeof(coord), compare2);
+  for(int i=0;i<n;i++){
+    printf("%d ", arr[i].y);
+  }
+}
