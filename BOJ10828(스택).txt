@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <string.h>
+
+int top=-1;
+
+int pop(int stack[]){
+  if(top==-1){
+    return -1;
+  }
+  return stack[top--];
+}
+
+int empty(int stack[]){
+  if(top==-1)
+    return 1;
+  return 0;
+}
+
+void push(int stack[], int x){
+  stack[++top]=x;
+}
+
+int main(){
+  int n, x, stack[10001];
+  char com[100];
+  scanf("%d", &n);
+  for(int i=0;i<n;i++){
+    scanf("%s", &com);
+    if(com[0]=='p'&&com[1]=='u'){
+      scanf("%d", &x);
+      push(stack,x);
+    }
+    if(com[0]=='p'&&com[1]=='o'){
+      printf("%d\n", pop(stack));
+    }
+    if(com[0]=='s'){
+      printf("%d\n", top+1);
+    }
+    if(com[0]=='e'){
+      if(empty(stack))
+        printf("1\n");
+      else
+        printf("0\n");
+    }
+    if(com[0]=='t'){
+      if(top!=-1)
+        printf("%d\n", stack[top]);
+      else
+        printf("-1\n");
+    }
+  }
+}
