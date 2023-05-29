@@ -1,0 +1,55 @@
+#include <stdio.h>
+#include <string.h>
+#define MAX 100
+
+char stack[MAX];
+int top=-1;
+
+int push(char k){
+  if(top>=MAX-1)
+    return -1;
+  return stack[++top]=k;
+}
+
+int pop(){
+  if(top<0)
+    return -1;
+  return stack[top--]='\0';
+}
+
+char peek(){
+  return stack[top];
+}
+
+int main(){
+  int len;
+  while(1){
+    top=-1;
+    char s[MAX];
+    gets(s);
+    len=strlen(s);
+    
+    if(strcmp(s,".")==0){
+      break;
+    }
+    for(int i=0;i<len;i++){
+      if(s[i]=='('||s[i]==')'||s[i]=='['||s[i]==']'){
+        if(top==-1)
+          push(s[i]);
+        else{
+          if(peek()=='('&&s[i]==')')
+            pop();
+          else if(peek()=='['&&s[i]==']')
+            pop();
+          else 
+            push(s[i]);
+        }
+      }
+    }
+    if(top==-1)
+      printf("yes\n");
+    else
+      printf("no\n");
+  }
+  return 0;
+}
