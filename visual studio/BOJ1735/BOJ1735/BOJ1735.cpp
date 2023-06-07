@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int maxdivide(int a, int b)
+{
+	if (b == 0) {
+		return a;
+	}
+	return maxdivide(b, a % b);
+}
+
+int main()
+{
+	int A1, B1;
+	int A2, B2;
+	//A1*B2+A2*B1/A2*B2
+	scanf_s("%d %d", &A1, &B1);
+	scanf_s("%d %d", &A2, &B2);
+	int x = (A1 * B2) + (A2 * B1);
+	int y = B1 * B2;
+
+	printf("%d %d", x / maxdivide(x, y), y / maxdivide(x, y));
+}
