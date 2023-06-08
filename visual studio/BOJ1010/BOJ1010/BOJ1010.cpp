@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+double factorial(int a)
+{
+	if (a == 0)
+		return 1;
+	return a * factorial(a - 1);
+}
+
+int main()
+{
+	int N, M, T;
+
+	scanf_s("%d", &T);
+
+
+	for (int i = 0; i < T; i++)
+	{
+		scanf_s("%d %d", &N, &M);
+		double anw = factorial(M) / (factorial(M - N) * factorial(N));
+		printf("%.0f\n", anw);
+	}
+}
